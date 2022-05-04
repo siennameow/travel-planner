@@ -1,5 +1,5 @@
 // import models
-const Traveler = require('./Traveler');
+const Traveller = require('./Traveller');
 const Location = require('./Location');
 const Trip = require('./Trip');
 
@@ -7,7 +7,7 @@ const Trip = require('./Trip');
 //A trip will reference both of them (that is your join table
 
 //A Traveller will belongs to many Locations (through Trip)
-Traveler.belongsToMany( Location, { 
+Traveller.belongsToMany( Location, { 
   through: {
     model: Trip,
     unique: false,
@@ -15,7 +15,7 @@ Traveler.belongsToMany( Location, {
   as: 'planned_trips',
 })
 //Location will belongs to many Travellers (through Trip)
-Location.belongsToMany(Traveler, { 
+Location.belongsToMany(Traveller, { 
   through: {
     model: Trip,
     unique: false
@@ -24,7 +24,7 @@ Location.belongsToMany(Traveler, {
 })
 
 module.exports = {
-  Traveler,
+  Traveller,
   Location,
   Trip,
 };
