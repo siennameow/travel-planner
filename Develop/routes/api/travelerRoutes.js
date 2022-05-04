@@ -1,8 +1,13 @@
 const router = require('express').Router();
-const { } = require('../../model/index');
+const { Traveler, Location } = require('../../model/index');
 
 router.get('/', (req, res) => {
-Traveler
+    Traveler.findAll({
+        include: [{ model: Location }],
+    }).then(travelerAll => {
+        res.json(travelerAll)
+        console.log('Found Travelers')
+    }).catch(error => res.send(error).status(500));
 });
 
 router.get('/:id', (req, res) => {
