@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { } = require('../../model/index');
 
 router.get('/', (req, res) => {
-
+Traveler
 });
 
 router.get('/:id', (req, res) => {
