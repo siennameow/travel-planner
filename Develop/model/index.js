@@ -8,18 +8,23 @@ const Trip = require('./Trip');
 
 //A Traveller will belongs to many Locations (through Trip)
 Traveler.belongsToMany( Location, { 
-  through: Trip,
-  foreignKey: 'location_id',
+  through: {
+    model: Trip,
+    unique: false,
+  },
+  as: 'planned_trips',
 })
 //Location will belongs to many Travellers (through Trip)
 Location.belongsToMany(Traveler, { 
-  through: Trip,
-  foreignKey: 'traveller_id',
+  through: {
+    model: Trip,
+    unique: false
+  },
+  as: 'location_travellers'
 })
 
 module.exports = {
   Traveler,
   Location,
   Trip,
-  TripLocation,
 };
