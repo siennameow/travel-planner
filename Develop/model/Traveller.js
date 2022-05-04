@@ -4,10 +4,10 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 // Initialize Product model (table) by extending off Sequelize's Model class
-class Traveler extends Model {}
+class Traveller extends Model {}
 
 // set up fields and rules for Product model
-Traveler.init(
+Traveller.init(
   {  // define columns
     id: {
       type: DataTypes.INTEGER,
@@ -33,8 +33,8 @@ Traveler.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'traveler',
+    modelName: 'traveller',
   }
 );
 
-module.exports = Traveler;
+module.exports = Traveller;
