@@ -1,39 +1,38 @@
-// import important parts of sequelize library
 const { Model, DataTypes } = require('sequelize');
-// import our database connection from config.js
 const sequelize = require('../config/connection');
 
-// Initialize Product model (table) by extending off Sequelize's Model class
+// create our Traveller model
 class Traveller extends Model {}
 
-// set up fields and rules for Product model
+// create fields/columns for Traveller model
+
 Traveller.init(
-  {  // define columns
+  {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true,
+      autoIncrement: true
     },
     name: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     email: {
-      type: DataTypes.DECIMAL,
-      unique: true,
+      type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
       validate: {
-        isEmail: true,
+        isEmail: true
       }
-    },
+    }
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'traveller',
+    modelName: 'traveller'
   }
 );
 
